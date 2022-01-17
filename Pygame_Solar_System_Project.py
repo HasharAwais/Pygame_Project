@@ -9,76 +9,76 @@ mouse_pressed=bool(False)
 mouse_pressed_result=bool(False)
 
 def main_menu():
-    global mouse_pressed
-    global mouse_pressed_quit  
-    global mouse_pressed_lesson 
-    global quiz_mouse_pressed
-    global instruction_mouse_pressed
-    global mouse_pressed_result
+  global mouse_pressed
+  global mouse_pressed_quit  
+  global mouse_pressed_lesson 
+  global quiz_mouse_pressed
+  global instruction_mouse_pressed
+  global mouse_pressed_result
 
-    screen.blit(galaxy,(0,0))
-    main_menu_text = font.render("Main Menu", False, "White")   
-    instruction_text = average_font.render("Instructions", False, "Black")
-    lesson_text = average_font.render("Lesson", False, "Black") 
-    game_text = average_font.render("Game", False, "Black")
-    quiz_text = average_font.render("Quiz", False, "Black") 
-    result_text = average_font.render("Results", False, "Black") 
-    quit_text = average_font.render("Quit", False, "Black") 
+  screen.blit(galaxy,(0,0))
+  main_menu_text = font.render("Main Menu", False, "White")   
+  instruction_text = average_font.render("Instructions", False, "Black")
+  lesson_text = average_font.render("Lesson", False, "Black") 
+  game_text = average_font.render("Game", False, "Black")
+  quiz_text = average_font.render("Quiz", False, "Black") 
+  result_text = average_font.render("Results", False, "Black") 
+  quit_text = average_font.render("Quit", False, "Black") 
 
-    lesson_button = menu_button
-    instruction_button = menu_button
-    game_button = menu_button
-    quiz_button = menu_button
-    result_button = menu_button
-    quit_button = menu_button
+  lesson_button = menu_button
+  instruction_button = menu_button
+  game_button = menu_button
+  quiz_button = menu_button
+  result_button = menu_button
+  quit_button = menu_button
+  
+  lesson_surface = screen.blit(lesson_button,(30, 500))
+  instruction_surface = screen.blit(instruction_button,(240, 500))
+  game_surface = screen.blit(game_button,(450, 500))
+  quiz_surface = screen.blit(quiz_button,(660, 500))
+  result_surface = screen.blit(result_button, (870, 500))
+  quit_surface = screen.blit(quit_button,(1080, 500))  
     
-    lesson_surface = screen.blit(lesson_button,(30, 500))
-    instruction_surface = screen.blit(instruction_button,(240, 500))
-    game_surface = screen.blit(game_button,(450, 500))
-    quiz_surface = screen.blit(quiz_button,(660, 500))
-    result_surface = screen.blit(result_button, (870, 500))
-    quit_surface = screen.blit(quit_button,(1080, 500))  
-    
-    screen.blit(lesson_text, (75, 520))
-    screen.blit(instruction_text, (255, 520))
-    screen.blit(game_text, (500, 520))  
-    screen.blit(quiz_text, (715, 520))    
-    screen.blit(result_text, (915, 520))  
-    screen.blit(quit_text, (1135, 520))           
-    screen.blit(main_menu_text,(460,300))
+  screen.blit(lesson_text, (75, 520))
+  screen.blit(instruction_text, (255, 520))
+  screen.blit(game_text, (500, 520))  
+  screen.blit(quiz_text, (715, 520))    
+  screen.blit(result_text, (915, 520))  
+  screen.blit(quit_text, (1135, 520))           
+  screen.blit(main_menu_text,(460,300))
        
-    mouse_pos = pygame.mouse.get_pos() 
+  mouse_pos = pygame.mouse.get_pos() 
 
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        if lesson_surface.collidepoint(mouse_pos):
-            mouse_pressed = True
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        if instruction_surface.collidepoint(mouse_pos):
-            instruction_mouse_pressed = True
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        if game_surface.collidepoint(mouse_pos):
-            mouse_pressed = True
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        if quiz_surface.collidepoint(mouse_pos):
-            quiz_mouse_pressed = True
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        if result_surface.collidepoint(mouse_pos):
-            mouse_pressed_result = True
-    if event.type == pygame.MOUSEBUTTONDOWN:
-        if quit_surface.collidepoint(mouse_pos):
-            mouse_pressed_quit = True
+  if event.type == pygame.MOUSEBUTTONDOWN:
+    if lesson_surface.collidepoint(mouse_pos):
+      mouse_pressed = True
+  if event.type == pygame.MOUSEBUTTONDOWN:
+    if instruction_surface.collidepoint(mouse_pos):
+      instruction_mouse_pressed = True
+  if event.type == pygame.MOUSEBUTTONDOWN:
+    if game_surface.collidepoint(mouse_pos):
+      mouse_pressed = True
+  if event.type == pygame.MOUSEBUTTONDOWN:
+    if quiz_surface.collidepoint(mouse_pos):
+      quiz_mouse_pressed = True
+  if event.type == pygame.MOUSEBUTTONDOWN:
+    if result_surface.collidepoint(mouse_pos):
+      mouse_pressed_result = True
+  if event.type == pygame.MOUSEBUTTONDOWN:
+    if quit_surface.collidepoint(mouse_pos):
+      mouse_pressed_quit = True
         
-    if mouse_pressed == True:
-        screen.blit(galaxy,(0,0))
-    if instruction_mouse_pressed:
-      instruction()
-    if mouse_pressed_quit == True:
-        pygame.quit()
-        sys.exit()
-    if quiz_mouse_pressed == True:
-      quiz()
-    if mouse_pressed_result == True:
-      result()
+  if mouse_pressed == True:
+    screen.blit(galaxy,(0,0))
+  if instruction_mouse_pressed:
+    instruction()
+  if mouse_pressed_quit == True:
+    pygame.quit()
+    sys.exit()
+  if quiz_mouse_pressed == True:
+    quiz()
+  if mouse_pressed_result == True:
+    result()
 
 
 quiz_counter=int(0)
@@ -122,8 +122,8 @@ def quiz():
   screen.blit(bottom_right, (814,416))
 
   if event.type == pygame.MOUSEBUTTONDOWN:
-      if top_left_surface.collidepoint(mouse_pos):
-        mouse_correct = True
+    if top_left_surface.collidepoint(mouse_pos):
+      mouse_correct = True
   if event.type == pygame.MOUSEBUTTONDOWN:
     if top_right_surface.collidepoint(mouse_pos):
       mouse_wrong = True
@@ -194,8 +194,8 @@ def question2():
   screen.blit(bottom_right2, (774,416))
 
   if event.type == pygame.MOUSEBUTTONDOWN:
-      if top_left_surface2.collidepoint(mouse_pos):
-        mouse_wrong2 = True
+    if top_left_surface2.collidepoint(mouse_pos):
+      mouse_wrong2 = True
   if event.type == pygame.MOUSEBUTTONDOWN:
     if top_right_surface2.collidepoint(mouse_pos):
       mouse_correct2 = True
@@ -275,8 +275,8 @@ def question3():
   screen.blit(bottom_right3, (814,416))
 
   if event.type == pygame.MOUSEBUTTONDOWN:
-      if top_left_surface3.collidepoint(mouse_pos):
-        mouse_wrong3 = True
+    if top_left_surface3.collidepoint(mouse_pos):
+      mouse_wrong3 = True
   if event.type == pygame.MOUSEBUTTONDOWN:
     if top_right_surface3.collidepoint(mouse_pos):
       mouse_wrong3 = True
@@ -357,8 +357,8 @@ def question4():
   screen.blit(another_bottom_right4,(718,428))
 
   if event.type == pygame.MOUSEBUTTONDOWN:
-      if top_left_surface4.collidepoint(mouse_pos):
-        mouse_wrong4 = True
+    if top_left_surface4.collidepoint(mouse_pos):
+      mouse_wrong4 = True
   if event.type == pygame.MOUSEBUTTONDOWN:
     if top_right_surface4.collidepoint(mouse_pos):
       mouse_wrong4 = True
@@ -533,10 +533,10 @@ mouse_pressed_lesson = False
 
 
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      pygame.quit()
+      sys.exit()
     screen.blit(galaxy,(0,0))
     screen.blit(text1,(290,100))
     screen.blit(text2,(450, 550))
@@ -545,9 +545,9 @@ while True:
     screen.blit(teacher_text,(920,600))
     screen.blit(class_code_text,(920,640))
     if event.type == pygame.KEYUP:
-        key_pressed = True
+      key_pressed = True
     if key_pressed == True:
-        main_menu()
+      main_menu()
 
     pygame.display.update()    
     clock.tick(60)
